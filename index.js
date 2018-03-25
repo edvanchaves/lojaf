@@ -33,6 +33,11 @@ contatos.push(new Contato(3, 'Maria', '9999-8888', 'ana@123.com'));
 
 // Rotas
 // Obtendo a lista de todos os contatos
+app.get('/', (request, response) => {
+    response.send(response.json(contatos));
+}
+);
+
 app.get('/contatos', (request, response) => {
         response.send(response.json(contatos));
     }
