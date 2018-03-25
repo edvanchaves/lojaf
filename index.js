@@ -96,12 +96,17 @@ app.delete('/contatos/:id', (request, response) => {
             x = i;
     }
 
+    console.log('X: ' + x + ' idDel: ' + idDel);
+
     if (x > -1){
         contatos.slice(i, 1);
+        console.log('Contato excluído com sucesso!');
         response.send('Contato excluído com sucesso!');
     }
-    else
+    else{
+        console.log('Erro na exclusão!');
         response.send('Erro na exclusão!');
+    }
     
     /*Contato.findById(id)
     .then((contato) => {
