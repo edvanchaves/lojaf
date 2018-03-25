@@ -57,20 +57,26 @@ app.get('/contatos/:id', (request, response) => {
         response.send('Erro na recuperação dos contatos!');
     });
 });
+*/
 
 // Incluindo um novo contato
 app.post('/contatos', (request, response) => {
     const novoContato = request.body.contato;
 
-    Contato.create(novoContato)
+    contatos.push(novoContato);
+
+    response.send(response.json(novoContato));
+
+    /*Contato.create(novoContato)
     .then(() => {
         response.send(response.json(novoContato));
     })
     .catch(()=>{
         response.send('Erro na criação de um novo contato!');
-    });
+    });*/
 });
 
+/*
 // Excluindo um contato
 app.delete('/contatos/:id', (request, response) => {
     const id = request.params.id;
