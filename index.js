@@ -98,7 +98,7 @@ app.delete('/contatos/:id', (request, response) => {
 
     if (x > -1){
         contatos.slice(i, 1);
-        response.send(response.json(contatos[i]));
+        response.send('Contato excluído com sucesso!');
     }
     else
         response.send('Erro na exclusão!');
