@@ -82,11 +82,25 @@ app.post('/contatos', (request, response) => {
     });*/
 });
 
-/*
 // Excluindo um contato
 app.delete('/contatos/:id', (request, response) => {
-    const id = request.params.id;
-    Contato.findById(id)
+    const idDel = request.params.id;
+
+    var x = -1;
+
+    for (var i = 0; i < contatos.length; i++) {
+        if (c.id == idDel)
+            x = i;
+    }
+
+    if (x > -1){
+        contatos.slice(i, 1);
+        response.send(response.json(contatos[i]));
+    }
+    else
+        response.send('Erro na exclusão!');
+    
+    /*Contato.findById(id)
     .then((contato) => {
         contato.destroy()
         .then(() => {
@@ -96,9 +110,11 @@ app.delete('/contatos/:id', (request, response) => {
     .catch(() => {
         response.send('Erro na exclusão!');
     });
+    */
 
 });
 
+/*
 // Atualizando um contato
 app.put('/contatos/:id', (request, response) => {
     const id = request.params.id;
