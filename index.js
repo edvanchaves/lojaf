@@ -91,6 +91,7 @@ app.delete('/contatos/:id', (request, response) => {
     var x = -1;
 
     for (var i = 0; i < contatos.length; i++) {
+        var c = contatos[i];
         if (c.id == idDel)
             x = i;
     }
