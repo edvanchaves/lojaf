@@ -32,6 +32,8 @@ contatos.push(new Contato(1, 'Ana', '9999-8888', 'ana@123.com'));
 contatos.push(new Contato(2, 'João', '9999-8888', 'ana@123.com'));
 contatos.push(new Contato(3, 'Maria', '9999-8888', 'ana@123.com'));
 
+var nextId = 4;
+
 
 // Rotas
 // Obtendo a lista de todos os contatos
@@ -69,7 +71,8 @@ app.post('/contatos', (request, response) => {
     console.log(request.body);
     console.log(novoContato);
 
-    novoContato.id = contatos.length + 1;
+    novoContato.id = nextId;
+    nextId += 1;
 
     contatos.push(novoContato);
 
