@@ -11,6 +11,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.set('port', (process.env.PORT || 5000));
+
 // Definindo o Model
 class Contato {
 
@@ -110,4 +112,4 @@ app.put('/contatos/:id', (request, response) => {
 });
 */
 
-app.listen(3000, () => console.log('Aplicação inicializada!'));
+app.listen(app.get('port'), () => console.log('Aplicação inicializada!'));
