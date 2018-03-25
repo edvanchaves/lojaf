@@ -127,13 +127,36 @@ app.delete('/contatos/:id', (request, response) => {
 
 });
 
-/*
+
 // Atualizando um contato
 app.put('/contatos/:id', (request, response) => {
     const id = request.params.id;
-    const novo = request.body.contato;
+    const novo = request.body;
 
-    Contato.findById(id)
+    console.log(id);
+    console.log(novo);
+
+    var x = -1;
+
+    for (var i = 0; i < contatos.length; i++) {
+        var c = contatos[i];
+        if (c.id == idDel) {
+            x = i;
+            contatos[i] = novo;
+        }
+    }
+
+    if (x > -1){
+        console.log('Contato atualizado com sucesso!');
+        response.send('Contato atualizado com sucesso!');
+    }
+    else{
+        console.log('Erro na atualização!');
+        response.send('Erro na atualização!');
+    }
+
+
+    /*Contato.findById(id)
     .then((contato) => {
 
         contato.nome = novo.contato ? novo.contato : contato.nome;
@@ -148,9 +171,9 @@ app.put('/contatos/:id', (request, response) => {
     })
     .catch(() => {
         response.send('Erro na atualização!');
-    });
+    });*/
 
 });
-*/
+
 
 app.listen(app.get('port'), () => console.log('Aplicação inicializada!'));
