@@ -63,6 +63,8 @@ app.get('/contatos/:id', (request, response) => {
 app.post('/contatos', (request, response) => {
     const novoContato = request.body.contato;
 
+    console.log(novoContato);
+
     contatos.push(novoContato);
 
     response.send(response.json(novoContato));
