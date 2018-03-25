@@ -130,17 +130,17 @@ app.delete('/contatos/:id', (request, response) => {
 
 // Atualizando um contato
 app.put('/contatos/:id', (request, response) => {
-    const id = request.params.id;
+    const idAtu = request.params.id;
     const novo = request.body;
 
-    console.log(id);
+    console.log(idAtu);
     console.log(novo);
 
     var x = -1;
 
     for (var i = 0; i < contatos.length; i++) {
         var c = contatos[i];
-        if (c.id == idDel) {
+        if (c.id == idAtu) {
             x = i;
             contatos[i] = novo;
         }
