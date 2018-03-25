@@ -100,7 +100,7 @@ app.delete('/contatos/:id', (request, response) => {
 
     if (x > -1){
         console.log(contatos);
-        contatos = contatos.slice(i, i + 1);
+        contatos = contatos.filter(x => x.id != idDel );
         console.log(contatos);
         console.log('Contato excluído com sucesso!');
         response.send('Contato excluído com sucesso!');
