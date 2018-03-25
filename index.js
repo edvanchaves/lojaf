@@ -63,11 +63,13 @@ app.get('/contatos/:id', (request, response) => {
 app.post('/contatos', (request, response) => {
     
 
-    const novoContato = request.body;
+    var novoContato = request.body;
 
     console.log('Cadastrando um novo contato: ');
     console.log(request.body);
     console.log(novoContato);
+
+    novoContato.id = contatos.length + 1;
 
     contatos.push(novoContato);
 
